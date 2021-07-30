@@ -2,19 +2,27 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
+using Newtonsoft.Json;
+internal class GetType
+{ }
 public class RootObject
 {
-    public class<Milk> milk{ GetType; ISet; }
-    public class<Pasta> pasta{ GetType; ISet; }
-}
+    
 
+    public class Milk {} class milk{ GetType ISet; }
+    public class Pasta { } class pasta{ GetType ISet; }
+}
 public class Food
 {
     
     private static string jsonLocation = "data\\food.json";
     private static string logLocation = "data\\log.txt";
+    private static string flavor;
+    private static string kind;
+    private static double amount;
+
+    public static object JsonConvert { get; private set; }
 
     public void Display()
     {
@@ -356,7 +364,7 @@ public class Food
         }
     }
 
-    public static void WriteJson(double size, string type, string material)
+    public static void WriteJson( double size, string type, string material)
     {
         try
         {
@@ -379,7 +387,7 @@ public class Food
             json.Milk.Add(new milk()
             {
                 id = highestID + 1,
-                size = size,
+                size = double ,size,
                 type = type,
                 flavor= flavor
             });
@@ -420,7 +428,7 @@ public class Food
                 }
             }
 
-            Pasta pasta = new Pasta
+            pasta pasta = new pasta
             {
                 id = highestID + 1,
                 amount= amount,
@@ -428,7 +436,7 @@ public class Food
                 
             };
 
-            json.pasta.Add(new Pasta()
+            json.pasta.Add(new pasta()
             {
                 id = highestID + 1,
                 amount = amount,
